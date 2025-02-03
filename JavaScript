@@ -1,0 +1,22 @@
+const monsters = [
+    { emoji: "🔥", name: "火焰獸", attribute: "火" },
+    { emoji: "💧", name: "水靈精", attribute: "水" },
+    { emoji: "🍃", name: "風之靈", attribute: "風" },
+    { emoji: "🌍", name: "大地獸", attribute: "土" }
+];
+let currentMonster = {};
+
+function generateMonster() {
+    currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
+    document.getElementById("monster").innerText = currentMonster.emoji;
+    document.getElementById("attribute").innerText = `屬性: ${currentMonster.attribute}`;
+    document.getElementById("result").innerText = "";
+}
+
+function catchMonster() {
+    if (currentMonster.name) {
+        document.getElementById("result").innerText = `你成功捕捉到了 ${currentMonster.name}！`;
+    } else {
+        document.getElementById("result").innerText = "請先發現怪物！";
+    }
+}
